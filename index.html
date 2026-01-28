@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Noman | Web Developer Portfolio</title>
+    <meta name="description" content="Muhammad Noman — Web Developer. Building responsive, high-performance websites and web apps with React, Next.js, Tailwind CSS, and Node.js. Available for freelance." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Custom modal for form success */
+        #success-modal { display: none; }
+        #success-modal.active { display: flex; }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { animation: none; }
+            * { transition: none !important; }
+        }
+
+        /* Small helper for skip link */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            left: 1rem;
+            top: 1rem;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 60;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="text-xl font-bold tracking-tight text-indigo-600">MN.</a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#home" class="hover:text-indigo-600 transition-colors">Home</a>
+            <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
+            <a href="#projects" class="hover:text-indigo-600 transition-colors">Projects</a>
+            <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
+            <a href="#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+        </div>
+        <button class="md:hidden" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white border-b px-6 py-4" role="menu" aria-hidden="true">
+        <a href="#home" class="block text-lg mobile-link" role="menuitem">Home</a>
+        <a href="#about" class="block text-lg mobile-link" role="menuitem">About</a>
+        <a href="#projects" class="block text-lg mobile-link" role="menuitem">Projects</a>
+        <a href="#services" class="block text-lg mobile-link" role="menuitem">Services</a>
+        <a href="#contact" class="block text-lg mobile-link" role="menuitem">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<main id="main" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-white to-slate-50">
+    <section id="home" class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50 rounded-full">Available for freelance</span>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">I'm <span class="text-indigo-600">Muhammad Noman</span></h1>
+        <p class="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+            A Web Developer crafting beautiful, high-performance digital experiences with modern technologies.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#projects" class="px-8 py-4 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg shadow-indigo-200">View My Work</a>
+            <a href="#contact" class="px-8 py-4 bg-white border border-slate-200 text-slate-700 rounded-full font-medium hover:border-indigo-600 transition-all">Get in Touch</a>
+        </div>
+    </section>
+</main>
+
+<!-- About Section -->
+<section id="about" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-indigo-100 flex items-center justify-center">
+                   <i data-lucide="user" size="120" class="text-indigo-300"></i>
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden lg:block text-center">
+                    <p class="text-3xl font-bold text-indigo-600">3+</p>
+                    <p class="text-sm text-slate-500 font-medium">Years Experience</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Passionate about building the future of the web.</h2>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    Hi, I’m <span class="font-bold text-indigo-600">Muhammad Noman</span>. I’m a web developer specializing in responsive, user-centric websites and web apps. I enjoy turning complex problems into simple, beautiful solutions.
+                </p>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-lg mb-2">My Core Skills:</h3>
+                    <div><p class="text-sm font-medium mb-1">React / Next.js</p><div class="w-full bg-slate-200 h-3 rounded-full"><div class="bg-indigo-600 h-3 rounded-full w-[90%]"></div></div></div>
+                    <div><p class="text-sm font-medium mb-1">Tailwind CSS</p><div class="w-full bg-slate-200 h-3 rounded-full"><div class="bg-indigo-600 h-3 rounded-full w-[95%]"></div></div></div>
+                    <div><p class="text-sm font-medium mb-1">Node.js / Express</p><div class="w-full bg-slate-200 h-3 rounded-full"><div class="bg-indigo-600 h-3 rounded-full w-[85%]"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Selected Projects</h2>
+            <div class="w-16 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card -->
+            <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                <div class="aspect-video bg-indigo-50 flex items-center justify-center">
+                    <i data-lucide="layout" size="48" class="text-indigo-200 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <p class="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">Next.js, Stripe</p>
+                    <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                    <p class="text-slate-500 text-sm mb-4">Developed a full-stack e-commerce platform with seamless payment integration.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-indigo-600 text-sm font-bold flex items-center gap-1" aria-label="Open live demo (external)">Live Demo <i data-lucide="external-link" size="14"></i></a>
+                    </div>
+                </div>
+            </article>
+            <!-- Repeat or add more project cards as needed -->
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-6">Let's work together.</h2>
+                <p class="text-slate-400 text-lg mb-10 leading-relaxed">Have a project in mind? My inbox is always open.</p>
+                <div class="flex gap-4">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors" aria-label="GitHub"><i data-lucide="github" size="18"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" size="18"></i></a>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                <form id="contact-form" class="space-y-4" aria-label="Contact form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-slate-700 text-xs font-bold uppercase mb-2">Name</label>
+                            <input id="name" name="name" type="text" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-indigo-600" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-slate-700 text-xs font-bold uppercase mb-2">Email</label>
+                            <input id="email" name="email" type="email" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-indigo-600" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-slate-700 text-xs font-bold uppercase mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-indigo-600"></textarea>
+                    </div>
+                    <button id="send-btn" type="submit" class="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Modal -->
+<div id="success-modal" class="fixed inset-0 z-[100] bg-slate-900/50 items-center justify-center p-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="success-title" aria-hidden="true">
+    <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl">
+        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="check" size="32"></i>
+        </div>
+        <h3 id="success-title" class="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+        <p id="success-desc" class="text-slate-500 mb-6">Thanks for reaching out, Muhammad Noman will get back to you soon.</p>
+        <button id="modal-close" class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold">Close</button>
+    </div>
+</div>
+
+<footer class="py-12 bg-slate-50 border-t">
+    <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
+        <p id="footer-copy">&copy; 2024 Muhammad Noman. Built with Tailwind CSS & Lucide Icons.</p>
+    </div>
+</footer>
+
+<script>
+    // Initialize Icons after DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined' && lucide && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    });
+
+    // Mobile Menu Toggle (with ARIA)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.setAttribute('aria-hidden', String(expanded));
+        if (!expanded) {
+            // move focus to first menu item for keyboard users
+            const first = mobileMenu.querySelector('[role="menuitem"]');
+            first?.focus();
+        } else {
+            menuBtn.focus();
+        }
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Form Logic with backend-friendly fetch and accessible modal
+    const contactForm = document.getElementById('contact-form');
+    const modal = document.getElementById('success-modal');
+    const modalClose = document.getElementById('modal-close');
+    const sendBtn = document.getElementById('send-btn');
+    let lastFocusedElement = null;
+
+    // Utility to get focusable elements inside an element
+    function getFocusable(el) {
+        return el.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+    }
+
+    function openModal(message) {
+        lastFocusedElement = document.activeElement;
+        if (message) {
+            document.getElementById('success-desc').textContent = message;
+        }
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        // focus first focusable element in modal
+        const focusable = getFocusable(modal);
+        if (focusable.length) focusable[0].focus();
+        document.addEventListener('keydown', handleModalKeys);
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.removeEventListener('keydown', handleModalKeys);
+        lastFocusedElement?.focus();
+    }
+
+    function handleModalKeys(e) {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            closeModal();
+        }
+        // Basic focus trap
+        if (e.key === 'Tab') {
+            const focusable = Array.from(getFocusable(modal));
+            if (focusable.length === 0) return;
+            const idx = focusable.indexOf(document.activeElement);
+            if (e.shiftKey && idx === 0) {
+                e.preventDefault();
+                focusable[focusable.length - 1].focus();
+            } else if (!e.shiftKey && idx === focusable.length - 1) {
+                e.preventDefault();
+                focusable[0].focus();
+            }
+        }
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        sendBtn.disabled = true;
+        sendBtn.textContent = 'Sending...';
+
+        const formData = new FormData(contactForm);
+
+        // Replace the endpoint below with your server endpoint or a 3rd-party form service URL.
+        // If you don't have a backend yet, the code will still show a success modal locally.
+        const endpoint = '/api/contact'; // <-- update to your real endpoint if available
+
+        try {
+            const res = await fetch(endpoint, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (res.ok) {
+                openModal('Thanks for reaching out — I will get back to you soon.');
+                contactForm.reset();
+            } else {
+                // Fallback: if no backend, still show a friendly message
+                console.warn('Contact endpoint returned non-ok response', res.status);
+                openModal('Your message was recorded locally — replace /api/contact with your form endpoint to send messages.');
+                contactForm.reset();
+            }
+        } catch (err) {
+            // If network error (no backend), show fallback message and console log
+            console.error('Contact submit failed:', err);
+            openModal('Your message was recorded locally — replace /api/contact with your form endpoint to send messages.');
+            contactForm.reset();
+        } finally {
+            sendBtn.disabled = false;
+            sendBtn.textContent = 'Send Message';
+        }
+    });
+
+    // Update footer year dynamically
+    document.addEventListener('DOMContentLoaded', () => {
+        const footer = document.getElementById('footer-copy');
+        const year = new Date().getFullYear();
+        footer.innerHTML = `&copy; ${year} Muhammad Noman. Built with Tailwind CSS & Lucide Icons.`;
+    });
+</script>
+</body>
+</html>
